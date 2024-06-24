@@ -10,15 +10,14 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v4
 
+            - name: Docker Login
+              uses: docker/login-action@v3.2.0
+              with:
+                username: fabricioveronez
+                password: ${{ secrets.DOCKER_PWD }}
+                      
             - name: Teste container
               uses: docker://fabricioveronez/teste:v1  
               with: 
                 entrypoint: cat 
                 args: README.md
-
-            # - name: Verificar a versão do Python
-            #   run: python3 --version
-            # - name: Instalação curl Alpine
-            #   run: apk add curl
-            # - name: Executando o curl
-            #   run: curl https://www.google.com
