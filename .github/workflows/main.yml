@@ -12,6 +12,10 @@ jobs:
 
             - name: Teste container
               uses: docker://fabricioveronez/teste:v1  
+              with: 
+                entrypoint: cat 
+                args: README.md
+
             # - name: Verificar a versão do Python
             #   run: python3 --version
             # - name: Instalação curl Alpine
